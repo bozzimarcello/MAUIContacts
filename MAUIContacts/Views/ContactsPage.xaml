@@ -3,18 +3,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MAUIContacts.Views.ContactsPage"
              Title="Contacts">
-    <VerticalStackLayout Spacing="5">
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        <Button 
-            Text="Add Contact"
-            x:Name="BtnAddContact"
-            Clicked="BtnAddContact_Clicked" />
-        <Button 
-            Text="Edit Contact"
-            x:Name="BtnEditContact"
-            Clicked="BtnEditContact_Clicked" />
-    </VerticalStackLayout>
+    
+    <ListView 
+        x:Name="LstContacts" 
+        BackgroundColor="Transparent"
+        SeparatorColor="Silver"
+        RowHeight="60"
+        >
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <TextCell 
+                    Text="{Binding Name}"
+                    Detail="{Binding Email}"/>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+        
+    </ListView>
+    
 </ContentPage>
